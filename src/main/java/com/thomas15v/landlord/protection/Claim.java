@@ -1,12 +1,9 @@
 package com.thomas15v.landlord.protection;
 
 import com.flowpowered.math.vector.Vector3i;
-import com.google.common.base.Optional;
 import com.thomas15v.landlord.LandLordPlugin;
-import com.thomas15v.landlord.config.ClaimsConfig;
 import ninja.leaping.configurate.objectmapping.Setting;
-import org.spongepowered.api.world.Location;
-import org.spongepowered.api.world.World;
+import org.spongepowered.api.entity.player.Player;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -50,6 +47,11 @@ public class Claim implements Serializable {
 
     public int getZ(){
         return location.getZ();
+    }
+
+    public boolean canAcces(Player player){
+        //todo: add claim trusts
+        return getOwner().trusts(player.getUniqueId());
     }
 
 }

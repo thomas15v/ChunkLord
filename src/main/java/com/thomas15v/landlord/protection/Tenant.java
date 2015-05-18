@@ -52,7 +52,7 @@ public class Tenant {
         tenantManager.updateOrCreateTentant(this);
     }
 
-    public boolean canAcces(UUID id){
+    public boolean trusts(UUID id){
         return trusts.contains(id);
     }
 

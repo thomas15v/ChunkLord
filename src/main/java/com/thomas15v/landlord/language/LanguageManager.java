@@ -28,13 +28,13 @@ public class LanguageManager {
         }
     }
 
-    public void sendMessage(CommandSource src, Messages message, TextColor color, Text... strings ){
+    public void sendMessage(CommandSource src, Messages message, TextColor color, String... strings ){
         src.sendMessage(Texts.builder().color(color).
                 append(get(message, strings)).
                 build());
     }
 
-    public Text get(Messages message, Text... strings){
+    public Text get(Messages message, String... strings){
        return Texts.of(String.format(languageConfig.getRoot().getNode(message.name()).getString(), strings));
     }
 }

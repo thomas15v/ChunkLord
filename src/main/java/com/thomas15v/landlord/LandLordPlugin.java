@@ -70,7 +70,7 @@ import java.util.UUID;
     }
 
     private void registerEvents(Game game){
-        game.getEventManager().register(this, new PlayerListener(tenantManager));
+        game.getEventManager().register(this, new PlayerListener(tenantManager, claimManager));
     }
 
     private void registerCommands(Game game){

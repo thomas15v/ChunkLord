@@ -44,11 +44,12 @@ public class ClaimInfoCommand implements Command {
             if (claimOptional.isPresent()){
                 Claim claim = claimOptional.get();
                 languageManager.sendMessage(src, Messages.CLAIM_INFO, TextColors.AQUA,
-                        Texts.of(player.getWorld().getName()),
-                        Texts.of(claim.getX()),
-                        Texts.of(claim.getZ()),
-                        Texts.of(claim.getOwner().getName())
-                        );
+                        player.getWorld().getName(),
+                        String.valueOf(claim.getX()),
+                        String.valueOf(claim.getZ()),
+                        claim.getOwner().getName(),
+                        "",
+                        "");
             }else {
                 languageManager.sendMessage(src, Messages.NO_CLAIM_FOUND, TextColors.YELLOW);
             }

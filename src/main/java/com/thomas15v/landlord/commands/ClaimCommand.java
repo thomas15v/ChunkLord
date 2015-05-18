@@ -38,7 +38,7 @@ public class ClaimCommand implements Command {
             Optional<Claim> claimOptional = plugin.getClaimManager().getClaimFor(player.getLocation());
             if (claimOptional.isPresent()){
                 languageManager.sendMessage(src, Messages.ALREADY_CLAIMED_BY, TextColors.RED,
-                        Texts.of(claimOptional.get().getOwner().getName()));
+                        claimOptional.get().getOwner().getName());
             }else {
                 plugin.getClaimManager().addClaim(player.getWorld(), new Claim(tenant, plugin.getTenantManager(), player.getLocation().getBlockPosition().div(16)));
                 languageManager.sendMessage(src, Messages.LAND_CLAIMED, TextColors.GREEN);
