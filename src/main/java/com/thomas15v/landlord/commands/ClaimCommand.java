@@ -52,6 +52,6 @@ public class ClaimCommand implements Command {
 
     @Override
     public CommandSpec getSpec() {
-        return CommandSpec.builder().setDescription(Texts.of("Claims a chunk for yourself!")).setExecutor(this).build();
+        return CommandSpec.builder().description(Texts.of("Claims a chunk for yourself!")).executor(this).build();
     }
 }

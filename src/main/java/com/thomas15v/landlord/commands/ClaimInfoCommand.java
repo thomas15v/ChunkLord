@@ -29,12 +29,10 @@ public class ClaimInfoCommand implements Command {
         this.languageManager = plugin.getLanguageManager();
     }
 
-    @Override
     public CommandSpec getSpec() {
-        return CommandSpec.builder().setDescription(Texts.of("Displays Information about the claim")).setExecutor(this).build();
+        return CommandSpec.builder().description(Texts.of("Displays Information about the claim")).executor(this).build();
     }
 
-    @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (src instanceof Player)
         {

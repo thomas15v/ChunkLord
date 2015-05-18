@@ -28,7 +28,7 @@ public class UnclaimCommand implements Command {
 
     @Override
     public CommandSpec getSpec() {
-        return CommandSpec.builder().setDescription(Texts.of("unclaims a chunk")).setExecutor(this).build();
+        return CommandSpec.builder().description(Texts.of("unclaims a chunk")).executor(this).build();
     }
 
     @Override

@@ -16,7 +16,7 @@ public class HelpCommand implements Command {
 
     @Override
     public CommandSpec getSpec() {
-        return CommandSpec.builder().setExecutor(this).build();
+        return CommandSpec.builder().executor(this).build();
     }
 
     @Override

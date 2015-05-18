@@ -57,7 +57,7 @@ public class Tenant {
     }
 
     public List<Tenant> getTrusts(){
-        List<Tenant> trustlist = new ArrayList<>();
+        List<Tenant> trustlist = new ArrayList<Tenant>();
         for (String trust : this.trusts)
             trustlist.add(tenantManager.getTentant(UUID.fromString(trust)).get());
         return trustlist;

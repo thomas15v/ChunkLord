@@ -23,18 +23,16 @@ public class LandLordCommand implements Command {
         this.plugin = plugin;
     }
 
-    @Override
     public CommandSpec getSpec() {
         //todo: keep this updated
-        HashMap<List<String>, CommandSpec> subcommands = new HashMap<>();
+        HashMap<List<String>, CommandSpec> subcommands = new HashMap<List<String>, CommandSpec>();
         subcommands.put(Arrays.asList("help", "h", ""), new HelpCommand().getSpec());
         subcommands.put(Arrays.asList("claim"), new ClaimCommand(plugin).getSpec());
         subcommands.put(Arrays.asList("unclaim"), new UnclaimCommand(plugin).getSpec());
         subcommands.put(Arrays.asList("claiminfo"), new ClaimInfoCommand(plugin).getSpec());
-        return CommandSpec.builder().setChildren(subcommands).setExecutor(this).build();
+        return CommandSpec.builder().children(subcommands).executor(this).build();
     }
 
-    @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         return CommandResult.success();
     }
