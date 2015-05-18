@@ -10,9 +10,8 @@ import java.util.UUID;
 
 public class Claim implements Serializable {
 
-    //todo: Change this to UUID
     @Setting
-    private String tenantId;
+    private UUID tenantId;
 
     @Setting
     private long claimed;
@@ -24,7 +23,7 @@ public class Claim implements Serializable {
     public Claim(Tenant tenant, TenantManager tenantManager, Vector3i location){
         this.tenantManager = tenantManager;
         this.location = location;
-        this.tenantId = tenant.getId().toString();
+        this.tenantId = tenant.getId();
         this.claimed = System.currentTimeMillis();
     }
 
@@ -38,7 +37,7 @@ public class Claim implements Serializable {
     }
 
     public Tenant getOwner(){
-        return tenantManager.getTentant(UUID.fromString(tenantId)).get();
+        return tenantManager.getTentant(tenantId).get();
     }
 
     public int getX(){

@@ -15,7 +15,6 @@ public class Tenant {
     @Setting
     private long lastJoined;
 
-    //todo: change this to a Set<String> when configure it capable of it.
     @Setting
     private List<String> trusts;
 
