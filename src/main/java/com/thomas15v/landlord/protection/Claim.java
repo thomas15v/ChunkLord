@@ -6,6 +6,7 @@ import ninja.leaping.configurate.objectmapping.Setting;
 import org.spongepowered.api.entity.player.Player;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 public class Claim implements Serializable {
@@ -15,6 +16,9 @@ public class Claim implements Serializable {
 
     @Setting
     private long claimed;
+
+    @Setting
+    private List<UUID> trused;
 
     private TenantManager tenantManager;
     private Vector3i location;
@@ -48,9 +52,13 @@ public class Claim implements Serializable {
         return location.getZ();
     }
 
+    public void addClaimTrust(UUID uuid){
+        if (!trused.contains(uuid))
+            trused.add(uuid);
+    }
+
     public boolean canAcces(Player player){
-        //todo: add claim trusts
-        return getOwner().trusts(player.getUniqueId());
+        return getOwner().trusts(player.getUniqueId()) || trused.contains(player.getUniqueId());
     }
 
 }

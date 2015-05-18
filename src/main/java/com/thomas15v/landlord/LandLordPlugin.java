@@ -74,6 +74,7 @@ import java.util.UUID;
     }
 
     private void registerCommands(Game game){
+        game.getCommandDispatcher().
         game.getCommandDispatcher().register(this, new LandLordCommand(this).getSpec(), "landlord", "ld");
         game.getCommandDispatcher().register(this, new ClaimCommand(this).getSpec(), "claim", "lclaim");
         game.getCommandDispatcher().register(this, new UnclaimCommand(this).getSpec(), "unclaim", "lunclaim");

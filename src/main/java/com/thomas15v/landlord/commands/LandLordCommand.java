@@ -1,7 +1,6 @@
 package com.thomas15v.landlord.commands;
 
 import com.thomas15v.landlord.LandLordPlugin;
-import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.util.command.CommandException;
 import org.spongepowered.api.util.command.CommandResult;
 import org.spongepowered.api.util.command.CommandSource;
@@ -15,7 +14,7 @@ import java.util.List;
 /**
  * Created by thomas15v on 17/05/15.
  */
-public class LandLordCommand implements Command {
+public class LandLordCommand extends AbstractCommand {
 
     private LandLordPlugin plugin;
 
@@ -23,6 +22,7 @@ public class LandLordCommand implements Command {
         this.plugin = plugin;
     }
 
+    @Override
     public CommandSpec getSpec() {
         //todo: keep this updated
         HashMap<List<String>, CommandSpec> subcommands = new HashMap<List<String>, CommandSpec>();

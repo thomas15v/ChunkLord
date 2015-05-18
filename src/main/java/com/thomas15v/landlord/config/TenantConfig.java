@@ -30,14 +30,13 @@ public class TenantConfig extends GenericConfig {
         }
     }
 
-    public Tenant updateorCreateTentant(Player player, TenantManager manager) throws IOException {
-        return updateorCreateTentant(new Tenant(player, manager));
+    public Tenant updateorCreateTentant(Player player) throws IOException {
+        return updateorCreateTentant(new Tenant(player));
     }
 
-    public Optional<Tenant> getTentant(UUID uuid, TenantManager manager){
+    public Optional<Tenant> getTentant(UUID id){
         try {
-            Tenant tenant = mapper.bindToNew().populate(getRoot().getNode(uuid.toString()));
-            tenant.setId(uuid);
+            Tenant tenant = mapper.bind(new Tenant(id)).populate(getRoot().getNode(id));
             return Optional.fromNullable(tenant);
         } catch (ObjectMappingException e) {
             e.printStackTrace();

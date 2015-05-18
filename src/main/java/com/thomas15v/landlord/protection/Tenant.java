@@ -21,16 +21,15 @@ public class Tenant {
     private UUID id;
     private TenantManager tenantManager;
 
-    public Tenant(Player player, TenantManager tenantManager){
-        this.tenantManager = tenantManager;
-        this.id = player.getUniqueId();
+    public Tenant(Player player){
         this.name = player.getName();
-        this.lastJoined = System.currentTimeMillis();
-        this.trusts = new ArrayList<String>();
     }
 
-    public Tenant(){
-        tenantManager = LandLordPlugin.getInstance().getTenantManager();
+    public Tenant(UUID id){
+        this.tenantManager = LandLordPlugin.getInstance().getTenantManager();;
+        this.id = id;
+        this.lastJoined = System.currentTimeMillis();
+        this.trusts = new ArrayList<String>();
     }
 
     public String getName() {
@@ -39,10 +38,6 @@ public class Tenant {
 
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public void addTrust(Tenant tenant){

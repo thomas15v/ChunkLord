@@ -7,17 +7,11 @@ import org.spongepowered.api.util.command.CommandException;
 import org.spongepowered.api.util.command.CommandResult;
 import org.spongepowered.api.util.command.CommandSource;
 import org.spongepowered.api.util.command.args.CommandContext;
-import org.spongepowered.api.util.command.spec.CommandSpec;
 
 /**
  * Created by thomas15v on 17/05/15.
  */
-public class HelpCommand implements Command {
-
-    @Override
-    public CommandSpec getSpec() {
-        return CommandSpec.builder().executor(this).build();
-    }
+public class HelpCommand extends AbstractCommand {
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {

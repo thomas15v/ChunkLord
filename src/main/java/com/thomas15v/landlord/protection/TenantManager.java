@@ -24,7 +24,7 @@ public class TenantManager {
 
     public Optional<Tenant> updateOrCreateTentant(Player player){
         try {
-            Tenant tenant = tentantConfig.updateorCreateTentant(player, this);
+            Tenant tenant = tentantConfig.updateorCreateTentant(player);
             return Optional.of(tenant);
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,8 +44,8 @@ public class TenantManager {
         return getTentant(player.getUniqueId());
     }
 
-    public Optional<Tenant> getTentant(UUID player){
-        return tentantConfig.getTentant(player, this);
+    public Optional<Tenant> getTentant(UUID id){
+        return tentantConfig.getTentant(id);
     }
 
 }
